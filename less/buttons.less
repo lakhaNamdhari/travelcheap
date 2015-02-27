@@ -59,9 +59,14 @@
 // Alternate buttons
 // --------------------------------------------------
 
-.btn-default {
+.btn-default, .btn-small {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.btn-small {
+  font-size: 14px;
+  height: 58px;
 }
 .btn-primary {
   .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);

@@ -2,11 +2,73 @@
 // New styles for travelCheap goes here
 // --------------------------------------------------
 
+/**
+*	Search Page
+**********************/
 .tc{
-	background-color: @brand-color-1;
-	padding: 36px 50px;
+	background-color: @brand-color-3;
+	padding: 36px 30px;
 }
 
 .tc-find-cabs input[type=submit]{
 	margin-top: 40px;
+}
+
+/**
+*	Search Results Page
+**********************/
+.tc-search-results > li {	
+	h2{
+		color: @brand-color-1;
+		padding: 15px;
+		background-color: @brand-color-2;
+		margin: 0;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	
+	.tc-trip-brief{
+		background-color: @brand-color-2;
+		padding: 10px 9px;
+	}
+	
+	.cab-name, .distance, .price{
+		display: block;
+	}
+	
+	.cab-name{
+		font-size: 14px;
+		
+		&::first-letter{
+			text-transform: uppercase;
+		}
+	}
+
+	.distance{
+		font-size: 12px;
+		font-style: italic;
+	}
+
+	.price{
+		font-size: 27px;
+	}
+}
+
+
+/**
+*	Trip Detail Page
+**********************/
+
+.tc-trip-detail{
+	.info{
+		background-color: @brand-color-2;
+		display: block;
+		padding: 10px 12px;
+		text-transform: uppercase;
+	}
+	
+	.map{
+		height: 200px;
+		background: url(../image/map.jpg);
+	}
 }
