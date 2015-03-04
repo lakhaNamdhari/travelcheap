@@ -1,34 +1,21 @@
 {
-  "name": "bootstrap",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-  "version": "3.3.2",
+  "name": "travelcheap",
+  "description": "Enabling cheapest travel for you.",
+  "version": "1.1.0",
   "keywords": [
-    "css",
-    "less",
-    "mobile-first",
-    "responsive",
-    "front-end",
-    "framework",
-    "web"
+    "travel",
+	"cab"
   ],
-  "homepage": "http://getbootstrap.com",
-  "author": "Twitter, Inc.",
-  "scripts": {
-    "test": "grunt test"
-  },
+  "homepage": "http://travelcheap.com",
   "style": "dist/css/bootstrap.css",
   "less": "less/bootstrap.less",
   "main": "./dist/js/npm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/twbs/bootstrap.git"
+    "url": "https://github.com/lakhaNamdhari/travelcheap"
   },
   "bugs": {
-    "url": "https://github.com/twbs/bootstrap/issues"
-  },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/twbs/bootstrap/blob/master/LICENSE"
+    "url": "https://github.com/lakhaNamdhari/travelcheap/issues"
   },
   "devDependencies": {
     "btoa": "~1.1.2",

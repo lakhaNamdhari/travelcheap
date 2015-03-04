@@ -8,6 +8,31 @@ module.exports = function (grunt) {
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
 
+    concat: {
+      options: {
+        banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>',
+        stripBanners: false
+      },
+      bootstrap: {
+        src: [
+          'js/transition.js',
+          'js/alert.js',
+          'js/button.js',
+          'js/carousel.js',
+          'js/collapse.js',
+          'js/dropdown.js',
+          'js/modal.js',
+          'js/tooltip.js',
+          'js/popover.js',
+          'js/scrollspy.js',
+          'js/tab.js',
+          'js/accordionForm.js',
+          'js/affix.js'
+        ],
+        dest: 'dist/js/<%= pkg.name %>.js'
+      }
+    },
+
 	less: {
       compileCore: {
         options: {
@@ -35,7 +60,7 @@ module.exports = function (grunt) {
 	
     esteWatch: {
 		options: {
-			dirs: ['less/**/'],
+			dirs: ['less/**/', 'js/**/'],
 			livereload : {
 				enabled : false
 			}
@@ -44,11 +69,21 @@ module.exports = function (grunt) {
 			grunt.log.ok('Time Stamp: ' + new Date());
 
 			return ['less'];
+		},
+		js: function(filepath) {
+			grunt.log.ok('Time Stamp: ' + new Date());
+
+			return ['concat'];
 		}
     }
   });
 
+  // Load task modules
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-este-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  
+  // Register Tasks
+  grunt.registerTask('buildjs', ['concat']);
   grunt.registerTask('watch', ['esteWatch']);
 };

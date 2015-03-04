@@ -10,9 +10,6 @@
 	padding: 36px 30px;
 }
 
-.tc-find-cabs input[type=submit]{
-	margin-top: 40px;
-}
 
 /**
 *	Search Results Page
@@ -20,15 +17,15 @@
 .tc-search-results > li {	
 	h2{
 		color: @brand-color-1;
+		border: 1px solid @brand-color-2;
 		padding: 15px;
-		background-color: @brand-color-2;
 		margin: 0;
 		text-align: center;
 		text-transform: uppercase;
 	}
 	
 	.tc-trip-brief{
-		background-color: @brand-color-2;
+		border: 1px solid @brand-color-2;
 		padding: 10px 9px;
 	}
 	
@@ -61,7 +58,7 @@
 
 .tc-trip-detail{
 	.info{
-		background-color: @brand-color-2;
+		border: 1px solid @brand-color-2;
 		display: block;
 		padding: 10px 12px;
 		text-transform: uppercase;
@@ -70,5 +67,37 @@
 	.map{
 		height: 200px;
 		background: url(../image/map.jpg);
+	}
+}
+
+/**
+*	accordion-form widget 
+**********************/
+.accordion-form{
+	fieldset{
+		height: 0;
+		opacity: 0;
+		transition: height 0.7s;
+		
+		&.active{
+			transition: height 0.7s;
+			opacity: 1;
+		}
+	}
+	
+	.tc-login{
+		fieldset{		
+			&.active{
+				height: 106px;
+			}
+		}		
+	}
+
+	.tc-driver-register{
+		fieldset{		
+			&.active{
+				height: 318px;
+			}
+		}		
 	}
 }
