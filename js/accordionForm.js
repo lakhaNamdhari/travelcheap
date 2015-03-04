@@ -32,6 +32,7 @@
 
   AccordionForm.prototype.bindEvents = function () {
     this.$element.on("submit.accordionform", this, this.toggleDisplay);
+    this.$element.on("click.accordionform","fieldset.wrap", this, this.hideControls);
   }
   
   AccordionForm.prototype.toggleDisplay = function ( e ) {
@@ -43,11 +44,19 @@
 	if ( !formControls.hasClass("active") ){
 		formControls.addClass("active");
 		if ( that.activeEl ){
-			that.activeEl.removeClass("active");
+			that.activeEl.removeClass("active")
 		}
-		that.activeEl = formControls;
-		e.preventDefault();
+		that.activeEl = formControls
+		e.preventDefault()
 	}
+  }
+  
+  AccordionForm.prototype.hideControls = function ( e ) {
+	var formControls = $( this ),
+		that = e.data;
+	
+	formControls.removeClass("active")
+	that.activeEl = null;
   }
 
 
