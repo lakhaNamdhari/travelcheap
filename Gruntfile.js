@@ -27,6 +27,17 @@ module.exports = function (grunt) {
         dest: 'dist/js/<%= pkg.name %>.widgets.js'
       }
     },
+	
+	copy: {
+      fonts: {
+        src: 'fonts/*',
+        dest: 'dist/'
+      },
+      images: {
+        src: 'images/*',
+        dest: 'dist/'
+      }
+    },
 
 	less: {
       compileCore: {
@@ -77,8 +88,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-este-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   
   // Register Tasks
   grunt.registerTask('buildjs', ['concat']);
   grunt.registerTask('watch', ['esteWatch']);
+  grunt.registerTask('build', ['concat', 'copy', 'less']);
 };
