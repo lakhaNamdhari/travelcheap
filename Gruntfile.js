@@ -57,7 +57,7 @@ module.exports = function (grunt) {
 	
     esteWatch: {
 		options: {
-			dirs: ['less/**/', 'js/**/'],
+			dirs: ['less/**/', 'js/**/', 'html/**/'],
 			livereload : {
 				enabled : false
 			}
@@ -71,6 +71,11 @@ module.exports = function (grunt) {
 			grunt.log.ok('Time Stamp: ' + new Date());
 
 			return ['concat'];
+		},
+		html: function(filepath) {
+			grunt.log.ok('Time Stamp: ' + new Date());
+
+			return ['includes'];
 		}
     },
 	
@@ -94,5 +99,5 @@ module.exports = function (grunt) {
   grunt.registerTask('buildjs', ['concat']);
   grunt.registerTask('buildhtml', ['includes']);
   grunt.registerTask('watch', ['esteWatch']);
-  grunt.registerTask('build', ['concat', 'copy', 'less', 'includes']);
+  grunt.registerTask('default', ['concat', 'copy', 'less', 'includes']);
 };
