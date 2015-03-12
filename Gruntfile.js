@@ -81,7 +81,15 @@ module.exports = function (grunt) {
 
 			return ['concat'];
 		}
-    }
+    },
+	
+	includes: {
+	  files: {
+		src: ['html/*.html'], 
+		dest: 'dist',
+		flatten: true
+	  }
+	}
   });
 
   // Load task modules
@@ -89,9 +97,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-este-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-includes');
   
   // Register Tasks
   grunt.registerTask('buildjs', ['concat']);
+  grunt.registerTask('buildhtml', ['includes']);
   grunt.registerTask('watch', ['esteWatch']);
-  grunt.registerTask('build', ['concat', 'copy', 'less']);
+  grunt.registerTask('build', ['concat', 'copy', 'less', 'includes']);
 };

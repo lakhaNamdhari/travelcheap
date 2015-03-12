@@ -23,7 +23,8 @@
     "grunt-contrib-concat": "~0.5.0",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-less": "~1.0.0",
-    "grunt-este-watch": "^0.1.18"
+    "grunt-este-watch": "^0.1.18",
+    "grunt-includes": "^0.4.5"
   },
   "dependencies": {}
 }
