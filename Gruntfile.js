@@ -16,7 +16,9 @@ module.exports = function (grunt) {
       vendor: {
         src: [
           'bower_components/jquery/dist/jquery.js',
-          'bower_components/bootstrap/dist/js/bootstrap.js'
+		  
+		  // Bootstrap Components
+          'bower_components/bootstrap/js/transition.js'
         ],
         dest: 'dist/js/<%= pkg.name %>.vendor.js'
       },
@@ -48,19 +50,8 @@ module.exports = function (grunt) {
           sourceMapURL: '<%= pkg.name %>.css.map',
           sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
         },
-        src: 'less/bootstrap.less',
+        src: 'less/travelcheap.less',
         dest: 'dist/css/<%= pkg.name %>.css'
-      },
-      compileTheme: {
-        options: {
-          strictMath: true,
-          sourceMap: true,
-          outputSourceFiles: true,
-          sourceMapURL: '<%= pkg.name %>-theme.css.map',
-          sourceMapFilename: 'dist/css/<%= pkg.name %>-theme.css.map'
-        },
-        src: 'less/theme.less',
-        dest: 'dist/css/<%= pkg.name %>-theme.css'
       }
     },
 	
