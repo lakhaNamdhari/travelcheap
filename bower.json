@@ -1,38 +1,27 @@
 {
-  "name": "bootstrap",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-  "version": "3.3.2",
+  "name": "travelcheap",
+  "version": "1.0.0",
+  "authors": [
+    "Lakha Singh <polizic@yahoo.co.in>"
+  ],
+  "description": "JS plugins and libraries for travelcheap",
+  "moduleType": [
+    "amd"
+  ],
   "keywords": [
-    "css",
-    "js",
-    "less",
-    "mobile-first",
-    "responsive",
-    "front-end",
-    "framework",
-    "web"
+    "travel"
   ],
-  "homepage": "http://getbootstrap.com",
-  "main": [
-    "less/bootstrap.less",
-    "dist/css/bootstrap.css",
-    "dist/js/bootstrap.js",
-    "dist/fonts/glyphicons-halflings-regular.eot",
-    "dist/fonts/glyphicons-halflings-regular.svg",
-    "dist/fonts/glyphicons-halflings-regular.ttf",
-    "dist/fonts/glyphicons-halflings-regular.woff"
-  ],
+  "license": "MIT",
+  "homepage": "travelcheap.com",
   "ignore": [
-    "/.*",
-    "_config.yml",
-    "CNAME",
-    "composer.json",
-    "CONTRIBUTING.md",
-    "docs",
-    "js/tests",
-    "test-infra"
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
   ],
   "dependencies": {
-    "jquery": ">= 1.9.1"
+    "jquery": ">= 1.9.1",
+    "bootstrap": "~3.3.2"
   }
 }

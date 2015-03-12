@@ -13,23 +13,18 @@ module.exports = function (grunt) {
         banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>',
         stripBanners: false
       },
-      bootstrap: {
+      vendor: {
         src: [
-          'js/transition.js',
-          'js/alert.js',
-          'js/button.js',
-          'js/carousel.js',
-          'js/collapse.js',
-          'js/dropdown.js',
-          'js/modal.js',
-          'js/tooltip.js',
-          'js/popover.js',
-          'js/scrollspy.js',
-          'js/tab.js',
-          'js/accordionForm.js',
-          'js/affix.js'
+          'bower_components/jquery/dist/jquery.js',
+          'bower_components/bootstrap/dist/js/bootstrap.js'
         ],
-        dest: 'dist/js/<%= pkg.name %>.js'
+        dest: 'dist/js/<%= pkg.name %>.vendor.js'
+      },
+      widgets: {
+        src: [
+          'widgets/accordionForm.js'
+        ],
+        dest: 'dist/js/<%= pkg.name %>.widgets.js'
       }
     },
 
