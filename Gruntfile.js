@@ -8,53 +8,56 @@ module.exports = function (grunt) {
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
 
+	// Concatination Task
     concat: {
-      options: {
-        banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>',
-        stripBanners: false
-      },
-      vendor: {
-        src: [
-          'bower_components/jquery/dist/jquery.js',
-		  
-		  // Bootstrap Components
-          'bower_components/bootstrap/js/transition.js'
-        ],
-        dest: 'dist/js/<%= pkg.name %>.vendor.js'
-      },
-      widgets: {
-        src: [
-          'widgets/accordionForm.js'
-        ],
-        dest: 'dist/js/<%= pkg.name %>.widgets.js'
-      }
+		options: {
+			banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>',
+			stripBanners: false
+		},
+		vendor: {
+			src: [
+				'bower_components/jquery/dist/jquery.js',
+				// Bootstrap Components
+				'bower_components/bootstrap/js/transition.js'
+			],
+			dest: 'dist/js/<%= pkg.name %>.vendor.js'
+		},
+		widgets: {
+			src: [
+				'widgets/accordionForm.js'
+			],
+			dest: 'dist/js/<%= pkg.name %>.widgets.js'
+		}
     },
 	
+	// Copying Task
 	copy: {
-      fonts: {
-        src: 'fonts/*',
-        dest: 'dist/'
-      },
-      images: {
-        src: 'images/*',
-        dest: 'dist/'
-      }
+		fonts: {
+			src: 'fonts/*',
+			dest: 'dist/'
+		},
+		images: {
+			src: 'images/*',
+			dest: 'dist/'
+		}
     },
 
+	// LESS to CSS Task
 	less: {
-      compileCore: {
-        options: {
-          strictMath: true,
-          sourceMap: true,
-          outputSourceFiles: true,
-          sourceMapURL: '<%= pkg.name %>.css.map',
-          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
-        },
-        src: 'less/travelcheap.less',
-        dest: 'dist/css/<%= pkg.name %>.css'
-      }
+		compileCore: {
+			options: {
+				strictMath: true,
+				sourceMap: true,
+				outputSourceFiles: true,
+				sourceMapURL: '<%= pkg.name %>.css.map',
+				sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+			},
+			src: 'less/travelcheap.less',
+			dest: 'dist/css/<%= pkg.name %>.css'
+		}
     },
 	
+	// Watch Task
     esteWatch: {
 		options: {
 			dirs: ['less/**/', 'js/**/', 'html/**/'],
@@ -79,16 +82,17 @@ module.exports = function (grunt) {
 		}
     },
 	
+	// Importing HTML within HTML Task
 	includes: {
-	  files: {
-		src: ['html/*.html'], 
-		dest: 'dist',
-		flatten: true
-	  }
+		files: {
+			src: ['html/*.html'], 
+			dest: 'dist',
+			flatten: true
+		}
 	}
   });
 
-  // Load task modules
+  // Load Tasks
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-este-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
