@@ -44,23 +44,23 @@ module.exports = function (grunt) {
 
 	// LESS to CSS Task
 	less: {
-		compileCore: {
+		dev: {
 			options: {
 				strictMath: true,
 				sourceMap: true,
 				outputSourceFiles: true,
 				sourceMapURL: '<%= pkg.name %>.css.map',
-				sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+				sourceMapFilename: 'styles/css/<%= pkg.name %>.css.map'
 			},
-			src: 'less/travelcheap.less',
-			dest: 'dist/css/<%= pkg.name %>.css'
+			src: 'styles/less/travelcheap.less',
+			dest: 'styles/css/<%= pkg.name %>.css'
 		}
     },
 	
 	// Watch Task
     esteWatch: {
 		options: {
-			dirs: ['less/**/', 'js/**/', 'html/**/'],
+			dirs: ['styles/less/**/', 'html/**/'],
 			livereload : {
 				enabled : false
 			}
@@ -70,11 +70,13 @@ module.exports = function (grunt) {
 
 			return ['less'];
 		},
+		/*
 		js: function(filepath) {
 			grunt.log.ok('Time Stamp: ' + new Date());
 
 			return ['concat'];
 		},
+		*/
 		html: function(filepath) {
 			grunt.log.ok('Time Stamp: ' + new Date());
 
@@ -86,7 +88,7 @@ module.exports = function (grunt) {
 	includes: {
 		files: {
 			src: ['html/*.html'], 
-			dest: 'dist',
+			dest: '',
 			flatten: true
 		}
 	}
@@ -100,8 +102,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-includes');
   
   // Register Tasks
-  grunt.registerTask('buildjs', ['concat']);
-  grunt.registerTask('buildhtml', ['includes']);
-  grunt.registerTask('watch', ['esteWatch']);
-  grunt.registerTask('default', ['concat', 'copy', 'less', 'includes']);
+  //grunt.registerTask('default', ['concat', 'copy', 'less', 'includes']);
 };
