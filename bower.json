@@ -1,27 +1,14 @@
 {
   "name": "travelcheap",
-  "version": "1.0.0",
-  "authors": [
-    "Lakha Singh <polizic@yahoo.co.in>"
-  ],
-  "description": "JS plugins and libraries for travelcheap",
-  "moduleType": [
-    "amd"
-  ],
-  "keywords": [
-    "travel"
-  ],
-  "license": "MIT",
-  "homepage": "travelcheap.com",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "version": "0.0.0",
   "dependencies": {
-    "jquery": ">= 1.9.1",
-    "bootstrap": "~3.3.2"
-  }
+    "bootstrap-sass-official": "~3.3.1",
+    "jquery": "~2.1.0",
+    "lodash": "~2.4.1",
+    "backbone": "~1.1.0",
+    "requirejs": "~2.1.10",
+    "requirejs-text": "~2.0.10",
+    "modernizr": "~2.7.1"
+  },
+  "devDependencies": {}
 }

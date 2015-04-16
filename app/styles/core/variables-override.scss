@@ -1,0 +1,60 @@
+//
+// Variables Override
+// --------------------------------------------------
+
+//## Brand Colors
+$brand-color-1:         #edd6e0;
+$brand-color-2:         #c1799e;
+$brand-color-3:         #a64d79;
+$brand-color-4:         #741b47;
+$brand-color-5:         #4c1130;
+
+$brand-primary:         $brand-color-1;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               $brand-color-2;
+//** Global text color on `<body>`.
+$text-color:            $brand-color-1;
+
+//** Global textual link color.
+$link-color:            $brand-primary;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-size-base:          14px;
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-default-color:              $brand-color-1;
+$btn-default-bg:                 $brand-color-2;
+$btn-default-border:             transparent; 
+
+
+//== Forms
+//
+//##
+
+//** `<input>` background color
+$input-bg:                       transparent;
+
+//** Text color for `<input>`s
+$input-color:                    $brand-color-1;
+//** `<input>` border color
+$input-border:                   $brand-color-2;
+
+//** Border color for inputs on focus
+$input-border-focus:             transparent;
+
+//** Placeholder text color
+$input-color-placeholder:        $brand-color-1;
