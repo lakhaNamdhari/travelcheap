@@ -1,0 +1,15 @@
+.tc{
+	background-color: $brand-color-3;
+	padding: 36px 30px;
+}
+
+/* From Grids.scss */
+.container-fluid {
+  @include container-fixed;
+  max-width: 400px;
+}
+
+.row {
+  @include make-row;
+  margin-bottom: 10px;
+}

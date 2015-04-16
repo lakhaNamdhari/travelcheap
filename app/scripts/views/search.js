@@ -18,15 +18,14 @@ define([
         events: {},
 
         initialize: function (opts) {
-            this.listenTo(this.model, 'change', this.render);
-
             opts = opts || {};
-            opts.$parent = opts.$parent || $("body");
+            this.$parent = opts.$parent || $("body");
+            this.render();
         },
 
         render: function () {
             this.$el.html(this.template({}));
-            this.$parent().empty();
+            this.$parent.empty();
             this.$parent.append(this.$el);
         }
     });
