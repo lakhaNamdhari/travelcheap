@@ -106,7 +106,7 @@ module.exports = function (grunt) {
                 path: 'http://localhost:<%= connect.options.port %>'
             },
             test: {
-                path: 'http://localhost:<%= connect.test.options.port %>/runners/search.html'
+                path: 'http://localhost:<%= connect.test.options.port %>/index.html?test=' + grunt.option('unitTest')
             }
         },
         clean: {
@@ -295,7 +295,7 @@ module.exports = function (grunt) {
         grunt.task.run(['serve' + (target ? ':' + target : '')]);
     });
 
-    grunt.registerTask('serve', function (target) {
+    grunt.registerTask('serve', function (target, module) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'open:server', 'connect:dist:keepalive']);
         }
