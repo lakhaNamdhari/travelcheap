@@ -24,9 +24,13 @@ define([
         },
 
         render: function () {
-            this.$el.html(this.template({}));
+            this.$el.html(this.template(this.model.toJSON));
             this.$parent.empty();
             this.$parent.append(this.$el);
+        },
+
+        destroy: function(){
+            this.$parent.empty();
         }
     });
 

@@ -14,8 +14,14 @@ define([
 
         $viewHolder: $("#view"),
 
+        /*
+        *   Seach page, which is default route.
+        */
         rSearch: function(){
-        	this.currentView = new SearchView({$parent: this.$viewHolder});
+        	this.currentView = new SearchView({
+                model: {},
+                $parent: this.$viewHolder
+            });
         }
     });
 
