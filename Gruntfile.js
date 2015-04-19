@@ -106,7 +106,7 @@ module.exports = function (grunt) {
                 path: 'http://localhost:<%= connect.options.port %>'
             },
             test: {
-                path: 'http://localhost:<%= connect.test.options.port %>/index.html?test=' + grunt.option('unitTest')
+                path: 'http://localhost:<%= connect.test.options.port %>/index.html?test=' + grunt.option('source')
             }
         },
         clean: {
@@ -128,11 +128,11 @@ module.exports = function (grunt) {
         mocha: {
             all: {
                 options: {
-                    run: true,
-                    urls: ['http://localhost:<%= connect.test.options.port %>/runners/search.html'],
+                    run: false,
+                    urls: ['http://localhost:<%= connect.test.options.port %>/index.html?test=' + grunt.option('source')],
                     reporter: 'XUnit'
                 },
-                dest: '<%= yeoman.test %>/results/search.html'
+                dest: '<%= yeoman.test %>/results/' + grunt.option('source') + '.html'
             }
         },
         sass: {
