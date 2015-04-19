@@ -22,7 +22,8 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'dist'
+        dist: 'dist',
+        test: 'test'
     };
 
     grunt.initConfig({
@@ -105,7 +106,7 @@ module.exports = function (grunt) {
                 path: 'http://localhost:<%= connect.options.port %>'
             },
             test: {
-                path: 'http://localhost:<%= connect.test.options.port %>'
+                path: 'http://localhost:<%= connect.test.options.port %>/runners/search.html'
             }
         },
         clean: {
@@ -128,8 +129,10 @@ module.exports = function (grunt) {
             all: {
                 options: {
                     run: true,
-                    urls: ['http://localhost:<%= connect.test.options.port %>/index.html']
-                }
+                    urls: ['http://localhost:<%= connect.test.options.port %>/runners/search.html'],
+                    reporter: 'XUnit'
+                },
+                dest: ':<%= yeoman.test %>/results/search.html'
             }
         },
         sass: {
