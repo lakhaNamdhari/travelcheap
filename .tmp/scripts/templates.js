@@ -6,7 +6,7 @@ this["JST"]["app/scripts/templates/search.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="form-group">\n\t<input type="text" class="form-control" id="source" placeholder="Source">\n</div>\n<div class="form-group">\n\t<input type="text" class="form-control" id="dest" placeholder="Destination">\n</div>\n<input type="submit" value="find Cabs" class="btn btn-default">';
+__p += '<div class="form-group">\n\t<label for="source">Source</label>\t\n\t<input type="text" class="form-control" id="source" placeholder="Source">\n</div>\n<div class="form-group">\n\t<label for="destination">Destination</label>\t\n\t<input type="text" class="form-control" id="destination" placeholder="Destination">\n</div>\n<input type="submit" value="find Cabs" class="btn btn-default">';
 
 }
 return __p

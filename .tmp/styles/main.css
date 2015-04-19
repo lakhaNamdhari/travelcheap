@@ -2021,8 +2021,7 @@ legend {
 label {
   display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold; }
+  margin-bottom: 5px; }
 
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -2066,7 +2065,6 @@ output {
   color: #edd6e0;
   background-color: transparent;
   background-image: none;
-  border: 1px solid #c1799e;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2761,7 +2759,6 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   background-color: #a64d79;
   padding: 36px 30px; }
 
-/* From Grids.scss */
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
@@ -2783,5 +2780,17 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     display: table; }
   .row:after {
     clear: both; }
+
+.form-control {
+  border: none;
+  width: inherit;
+  display: inline-block; }
+
+label {
+  margin-left: 10px;
+  color: #c1799e; }
+
+.form-group {
+  border-bottom: 1px solid #c1799e; }
 
 /*# sourceMappingURL=main.css.map */
