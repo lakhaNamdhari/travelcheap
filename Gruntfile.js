@@ -132,7 +132,7 @@ module.exports = function (grunt) {
                     urls: ['http://localhost:<%= connect.test.options.port %>/runners/search.html'],
                     reporter: 'XUnit'
                 },
-                dest: ':<%= yeoman.test %>/results/search.html'
+                dest: '<%= yeoman.test %>/results/search.html'
             }
         },
         sass: {
