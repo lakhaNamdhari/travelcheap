@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>Mocha Spec Runner</title>
-    <link rel="stylesheet" href="bower_components/mocha/mocha.css">
+    <link rel="stylesheet" href="../bower_components/mocha/mocha.css">
 </head>
 <body>
     <div id="mocha"></div>
+    <div id="view"></div>
     <script src="bower_components/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="bower_components/chai/chai.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/chai-jquery/chai-jquery.js"></script>
     <script>
         var assert = chai.assert;
         var expect = chai.expect;
@@ -17,10 +20,26 @@
     </script>
 
     <!-- include source files here... -->
+    <script src="scripts/require-config.js"></script>
+  
+    <!-- Dynamically include spec files here... -->
+    <script type="text/javascript">
+        require.baseUrl = '../'; 
+    </script>
+    <script type="text/javascript">
+    (function(){
+        var testFile = location.href.split('?');
 
-    <!-- include spec files here... -->
-    <script src="spec/test.js"></script>
+        if ( testFile.length == 2 ){
+            testFile = testFile[1].split('=');
 
-    <script>mocha.run()</script>
+            if ( testFile.length === 2 && testFile[0] === 'test' ){
+                testFile = 'spec/' + testFile[1];
+                $('body').append( $('<script data-main=' + testFile + ' src="bower_components/requirejs/require.js">') );
+            }
+        }
+    }());
+    </script>
+
 </body>
 </html>
