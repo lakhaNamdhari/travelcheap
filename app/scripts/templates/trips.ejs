@@ -1,0 +1,26 @@
+<li>
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>from Delhi to Gurgaon</h2>
+		</div>
+	</div>
+</li>
+<% for( var i = 0; i < data.length; i++ ){%>
+	<li>
+		<div class="row">
+			<div class="col-xs-8">
+				<div class="tc-trip-brief clearfix">
+					<div class="col-xs-8">
+						<span class="cab-name"><% data[i].cabName%></span>
+						<span class="distance"><% data[i].distance%> meter away</span>								
+					</div>
+					
+					<div class="col-xs-4">
+						<span class="price"><span class="pefix"></span><% data[i].price%></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4"><button class="btn btn-small">book</button></div>
+		</div>
+	</li>
+<%}%>
