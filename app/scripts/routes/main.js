@@ -2,17 +2,14 @@
 
 define([
     'jquery',
-    'backbone',
-    'vSearch',
-    'vTrips',
-    'cTrip'
-], function ($, Backbone, SearchView, TripsView, TripCollection) {
+    'backbone'
+], function ($, Backbone) {
     'use strict';
 
     var MainRouter = Backbone.Router.extend({
         routes: {
         	'' : 'rSearch',
-            '/search-results/:source/:destination' : 'rSearchResults'
+            'search-results/:source/:destination' : 'rSearchResults'
         },
 
         $viewHolder: $('#view'),
@@ -21,15 +18,21 @@ define([
         *   Seach page, which is default route.
         */
         rSearch: function(){
-            // Destroy any Existing View
-            if ( this.currentView ){
-                this.currentView.destroy();
-            }
+            var that = this;
 
-            // Load required View
-            this.currentView = new SearchView({
-                model: {},
-                $parent: this.$viewHolder
+            require([
+                'vSearch'
+            ], function( SearchView ){
+                // Destroy any Existing View
+                if ( that.currentView ){
+                    that.currentView.destroy();
+                }
+
+                // Load required View
+                that.currentView = new SearchView({
+                    model: {},
+                    $parent: that.$viewHolder
+                });
             });
         },
 
@@ -37,38 +40,35 @@ define([
         *   Seach Results page
         */
         rSearchResults: function( source, destination ){
-            var collection;
+            var that = this;
 
-            // Destroy any Existing View
-            if ( this.currentView ){
-                this.currentView.destroy();
-            }
+            require([
+                'vTrips',
+                'cTrip'
+            ], function( TripsView, TripCollection ){
+                var collection;
 
-            collection = new TripCollection({
-                source: source,
-                destination: destination
-            });
-
-            // Load required View
-        	this.currentView = new SearchResultsView({
-                model: {},
-                $parent: this.$viewHolder
-            });
-        },
-
-        /*
-        *   Utility for routing to given page
-        */
-        routeTo: function( page , args ){
-            if ( typeof page === 'string' && page.length ){
-                page = '/' + page;
-                if ( args && args.length ){
-                    page = page + '/' + args.join('/');
+                // Destroy any Existing View
+                if ( that.currentView ){
+                    that.currentView.destroy();
                 }
-                history.pushState( page );
-            }
+
+                collection = new TripCollection({
+                    source: source,
+                    destination: destination
+                });
+
+                // Load required View
+                that.currentView = new TripsView({
+                    collection: collection,
+                    $parent: that.$viewHolder
+                });
+            });
         }
     });
 
-    return MainRouter;
+    var router = new MainRouter();
+    
+    // This is a singleton
+    return router;
 });

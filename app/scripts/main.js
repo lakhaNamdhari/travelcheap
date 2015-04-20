@@ -5,7 +5,5 @@ require([
     'backbone',
     'rMain'
 ], function (Backbone, MainRouter) {
-    // Instantiate our main Router
-    new MainRouter();
-    Backbone.history.start();
+    Backbone.history.start({pushState: true});
 });
