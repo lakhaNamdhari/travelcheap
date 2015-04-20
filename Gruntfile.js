@@ -23,7 +23,8 @@ module.exports = function (grunt) {
     var yeomanConfig = {
         app: 'app',
         dist: 'dist',
-        test: 'test'
+        test: 'test',
+        services: 'services'
     };
 
     grunt.initConfig({
@@ -74,6 +75,7 @@ module.exports = function (grunt) {
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, yeomanConfig.services)
                         ];
                     }
                 }
@@ -87,6 +89,7 @@ module.exports = function (grunt) {
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, yeomanConfig.services)
                         ];
                     }
                 }
