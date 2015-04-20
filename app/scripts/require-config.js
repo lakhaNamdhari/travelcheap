@@ -3,6 +3,7 @@
 */
 
 window.require = {
+    baseUrl: '../',
     shim: {
         bootstrap: {
             deps: ['jquery'],
