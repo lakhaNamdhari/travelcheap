@@ -4,8 +4,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'templates'
-], function ($, _, Backbone, JST) {
+    'templates',
+    'rMain'
+], function ($, _, Backbone, JST, MainRouter) {
     'use strict';
 
     var SearchView = Backbone.View.extend({
@@ -15,7 +16,9 @@ define([
 
         className: 'tc-find-cabs',
 
-        events: {},
+        events: {
+            'submit .tc-find-cabs': 'hSearch'
+        },
 
         initialize: function (opts) {
             opts = opts || {};
@@ -28,6 +31,13 @@ define([
             this.$parent.empty();
             this.$parent.append(this.$el);
         },
+
+        hSearch: function(e){
+            e.preventDefault();
+
+            // Go to Search Results page
+            MainRouter.routeTo('search-results', [ $('#source').val(), $('#destination').val() ]);
+        }
 
         destroy: function(){
             this.$parent.empty();
