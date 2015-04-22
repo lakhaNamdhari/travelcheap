@@ -15,20 +15,14 @@ define([
 
         className: 'tc-find-cabs',
 
-        events: {},
+        events: {
+            'click a.btn': '_hSearch'
+        },
 
         initialize: function (opts) {
             opts = opts || {};
             this.$parent = opts.$parent || $('body');
             this.render();
-            this.attachEvents();
-        },
-
-        /*
-        *   Attaches any DOM Events
-        */
-        attachEvents: function(){
-            this.$parent.on('submit', 'form.tc-find-cabs', this._hSearch);
         },
 
         /*
@@ -44,12 +38,15 @@ define([
         *   Event Handler for search
         */
         _hSearch: function(e){
-            var MainRouter = require('rMain');
+            var src = $('#source').val(),
+                dst = $('#destination').val(),
+                baseUrl = $( e.target ).attr('href');
 
-            e.preventDefault();
-
-            // Go to Search Results page
-            MainRouter.navigate('search-results/' + $('#source').val() + '/' + $('#destination').val(), {trigger: true});
+            if ( !src.length || !dst.length ){
+                e.preventDefault();
+            }else{
+                $(e.target).attr('href', baseUrl + '/' + src + '/' + dst);
+            }
         },
 
         /*
