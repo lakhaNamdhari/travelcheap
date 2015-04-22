@@ -14,6 +14,19 @@ define([
 
         $viewHolder: $('#view'),
 
+        enableRouting: function(){
+            $( document ).on('click', 'a:not([data-bypass])', this, this._routeEnabler );
+        },
+
+        _routeEnabler: function( e ){
+            var that = e.data,
+                href = $( e.target ).attr('href');
+
+            e.preventDefault();
+
+            that.navigate( href, true );
+        },
+
         /*
         *   Seach page, which is default route.
         */
