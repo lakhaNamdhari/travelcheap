@@ -10,12 +10,14 @@ define([
     var TripCollection = Backbone.Collection.extend({
         model: TripModel,
 
-        initialize: function(){
-        	this.fetch({reset: true});
+        initialize: function(opts){
+            opts = opts || {};
+            this.source = opts.source;
+            this.destination = opts.destination;
         },
 
         url: function(){
-        	return '/services/' + this.source + '/' + this.destination;
+        	return '/' + this.source + '/' + this.destination + '.json';
         }
     });
 
