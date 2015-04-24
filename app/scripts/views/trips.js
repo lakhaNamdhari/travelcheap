@@ -17,12 +17,16 @@ define([
 
         events: {},
 
-        initialize: function () {
+        initialize: function (opts) {
+            opts = opts || {};
+            this.$parent = opts.$parent || $('body');
             this.listenTo(this.collection, 'reset', this.render);
+            // Populate collection
+            this.collection.fetch({reset: true});
         },
 
         render: function () {
-            this.$el.html(this.template(this.collection.toJSON));
+            this.$el.html(this.template({data: this.collection.toJSON()}));
             this.$parent.empty();
             this.$parent.append(this.$el);
         }
