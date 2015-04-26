@@ -1,0 +1,23 @@
+//
+// Forms
+// --------------------------------------------------
+
+.form-control {
+  border: none;
+  width: inherit;
+  display: inline-block;
+  box-shadow: none;
+
+  &:focus{
+  	box-shadow: none;
+  }
+}
+
+label{
+	margin-left: 10px;
+	color: $brand-color-2;
+}
+
+.form-group{
+ 	border-bottom: 1px solid $input-border;
+ }

@@ -1,0 +1,36 @@
+.tc-search-results > li {	
+	h2{
+		color: $brand-color-1;
+		border: 1px solid $brand-color-2;
+		padding: 15px;
+		margin: 0;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	
+	.tc-trip-brief{
+		border: 1px solid $brand-color-2;
+		padding: 10px 9px;
+	}
+	
+	.cab-name, .distance, .price{
+		display: block;
+	}
+	
+	.cab-name{
+		font-size: 14px;
+		
+		&::first-letter{
+			text-transform: uppercase;
+		}
+	}
+
+	.distance{
+		font-size: 12px;
+		font-style: italic;
+	}
+
+	.price{
+		font-size: 27px;
+	}
+}

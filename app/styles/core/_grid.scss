@@ -1,0 +1,13 @@
+
+//
+// Grid system
+// --------------------------------------------------
+.container-fluid {
+  @include container-fixed;
+  max-width: 400px;
+}
+
+.row {
+  @include make-row;
+  margin-bottom: 10px;
+}
