@@ -6,6 +6,40 @@ var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 
+// Services mapping to jsons
+var serviceRoutes = {
+    '/search-results' : 'services/search-results.json'
+};
+
+var processService = function( req, res, next){
+    var path = req.originalUrl;
+
+    // Absolute path for mapped json
+    var file;
+
+    // Flag to indicate if control should be passed to next middleware
+    var proceed = true;
+
+    for ( var i in serviceRoutes ){
+        if (serviceRoutes.hasOwnProperty(i)){
+            if (path.indexOf(i) !== -1){
+                proceed = false;
+                file = require('path').resolve( serviceRoutes[i] );
+                require('fs').readFile(file, function(err, data){
+                    res.writeHead(200,{
+                        'Content-Length': data.length,
+                        'Content-Type': 'application/json'
+                    });
+                    res.end(data);
+                });
+            }
+        }
+    }
+    if (proceed){
+        next();
+    }
+}
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -73,9 +107,9 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             lrSnippet,
+                            processService,
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app),
-                            mountFolder(connect, yeomanConfig.services)
+                            mountFolder(connect, yeomanConfig.app)
                         ];
                     }
                 }
@@ -88,8 +122,7 @@ module.exports = function (grunt) {
                             mountFolder(connect, 'test'),
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app),
-                            mountFolder(connect, yeomanConfig.services)
+                            mountFolder(connect, yeomanConfig.app)
                         ];
                     }
                 }
