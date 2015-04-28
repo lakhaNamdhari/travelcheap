@@ -74,7 +74,9 @@ define([
                 // Load required View
                 that.currentView = new TripsView({
                     collection: collection,
-                    $parent: that.$viewHolder
+                    $parent: that.$viewHolder,
+                    source: source,
+                    destination: destination
                 });
             });
         }

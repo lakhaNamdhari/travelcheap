@@ -1,7 +1,7 @@
 <li>
 	<div class="row">
 		<div class="col-xs-12">
-			<h2>from Delhi to Gurgaon</h2>
+			<h2>from <%= source%> to <%= destination%></h2>
 		</div>
 	</div>
 </li>
@@ -11,12 +11,12 @@
 			<div class="col-xs-8">
 				<div class="tc-trip-brief clearfix">
 					<div class="col-xs-8">
-						<span class="cab-name"><% data[i].cabName%></span>
-						<span class="distance"><% data[i].distance%> meter away</span>								
+						<span class="cab-name"><%= data[i].cabName%></span>
+						<span class="distance"><%= data[i].distance%> meter away</span>								
 					</div>
 					
 					<div class="col-xs-4">
-						<span class="price"><span class="pefix"></span><% data[i].price%></span>
+						<span class="price"><span class="pefix"></span><%= data[i].price%></span>
 					</div>
 				</div>
 			</div>
