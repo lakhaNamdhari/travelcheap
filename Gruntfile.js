@@ -8,7 +8,7 @@ var mountFolder = function (connect, dir) {
 
 // Services mapping to jsons
 var serviceRoutes = {
-    '/search-results' : 'services/search-results.json'
+    '/api/search-results' : 'services/api/search-results.json'
 };
 
 var processService = function( req, res, next){

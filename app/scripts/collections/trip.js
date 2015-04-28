@@ -17,7 +17,7 @@ define([
         },
 
         url: function(){
-        	return '/search-results/' + this.source + '/' + this.destination;
+        	return '/api/search-results/' + this.source + '/' + this.destination;
         }
     });
 

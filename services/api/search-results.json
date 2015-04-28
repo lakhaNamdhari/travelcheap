@@ -1,0 +1,17 @@
+[
+	{
+		"cabName": "Qualis Red",
+		"distance": 100,
+		"price" : 250
+	},
+	{
+		"cabName": "Tavera Blue",
+		"distance": 100,
+		"price" : 350
+	},
+	{
+		"cabName": "Ritz Grey",
+		"distance": 100,
+		"price" : 150
+	}
+]
