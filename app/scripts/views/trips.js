@@ -37,6 +37,13 @@ define([
             }));
             this.$parent.empty();
             this.$parent.append(this.$el);
+        },
+
+        /*
+        * Destroy's view and un-bind event handlers
+        */
+        destroy: function(){
+            this.$parent.empty();
         }
     });
 

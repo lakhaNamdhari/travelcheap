@@ -53,7 +53,6 @@ define([
         * Destroy's view and un-bind event handlers
         */
         destroy: function(){
-            this.$parent.off('submit', 'form.tc-find-cabs', this._hSearch);
             this.$parent.empty();
         }
     });
