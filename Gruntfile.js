@@ -6,9 +6,10 @@ var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 
-// Services mapping to jsons
+// Path mapping
 var serviceRoutes = {
-    '/api/search-results' : 'services/api/search-results.json'
+    '/api/search-results' : {url: 'services/api/search-results.json', type: 'application/json'},
+    '/search-results': {url: 'app/index.html', type: 'html'}
 };
 
 var processService = function( req, res, next){
@@ -24,11 +25,11 @@ var processService = function( req, res, next){
         if (serviceRoutes.hasOwnProperty(i)){
             if (path.indexOf(i) !== -1){
                 proceed = false;
-                file = require('path').resolve( serviceRoutes[i] );
+                file = require('path').resolve( serviceRoutes[i].url );
                 require('fs').readFile(file, function(err, data){
                     res.writeHead(200,{
                         'Content-Length': data.length,
-                        'Content-Type': 'application/json'
+                        'Content-Type': serviceRoutes[i].type
                     });
                     res.end(data);
                 });
