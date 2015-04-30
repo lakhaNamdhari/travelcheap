@@ -1,36 +1,36 @@
-.tc-search-results > li {	
-	h2{
-		color: $brand-color-1;
-		border: 1px solid $brand-color-2;
-		padding: 15px;
-		margin: 0;
-		text-align: center;
-		text-transform: uppercase;
-	}
-	
-	.tc-trip-brief{
-		border: 1px solid $brand-color-2;
-		padding: 10px 9px;
-	}
-	
-	.cab-name, .distance, .price{
-		display: block;
-	}
-	
-	.cab-name{
-		font-size: 14px;
-		
-		&::first-letter{
-			text-transform: uppercase;
+.tc-search-results {
+	.header{
+		margin-bottom            :   $sr-header-content-spacing;
+		h2{
+			  background-color   :   $sr-header-bg;
+			  color              :   $sr-header-color;
+			  padding            :   12px 20px;
+			  margin             :   0;
+			  text-transform     :   uppercase;
+			  font-weight        :   $sr-header-font-weight;
+			  font-size          :   $sr-header-font-size;
 		}
+
 	}
 
-	.distance{
-		font-size: 12px;
-		font-style: italic;
-	}
+	.content{
+		  background-color   :   $sr-content-bg;
+		  color              :   $sr-content-color;
+		  padding            :   12px 20px;
+		  font-weight        :   $sr-content-font-weight;
+		  font-size          :   $sr-content-font-size;
+		  margin-bottom      :   $sr-content-spacing;
 
-	.price{
-		font-size: 27px;
-	}
+		  .price{
+		  	font-size: $sr-content-font-size-2 ;
+		  	font-weight: $sr-content-font-weight-2;
+
+		   .prefix{
+		  		text-transform   :   uppercase;
+		  		margin-right     :   4px;
+		  		font-size  :  $sr-content-font-size;
+		  	    font-weight: $sr-content-font-weight;
+ 		   }
+ 		 }
+	}	
 }
