@@ -23,7 +23,8 @@ var processService = function( req, res, next){
 
     for ( var i in serviceRoutes ){
         if (serviceRoutes.hasOwnProperty(i)){
-            if (path.indexOf(i) !== -1){
+            // Test if requested path begins with any of saved routes
+            if ( new RegExp('^\\'+i).test(path)){
                 proceed = false;
                 file = require('path').resolve( serviceRoutes[i].url );
                 require('fs').readFile(file, function(err, data){
