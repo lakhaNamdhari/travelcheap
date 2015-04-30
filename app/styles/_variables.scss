@@ -1,0 +1,71 @@
+//== Bootstrap Vars
+
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+
+
+//== Colors
+
+// Brand Colors
+$brand-color-1    :       #edd6e0;      // Lightest Pink
+$brand-color-2    :       #c1799e;
+$brand-color-3    :       #a64d79;      // Darkest Pink
+
+
+//== Scaffolding
+
+$body-bg:               $brand-color-1;
+$text-color:            $brand-color-1;
+
+
+//== Links
+
+$link-color:            $brand-color-1;
+
+
+//== Typography
+
+$font-size-base     :          12px;
+$font-light         :          normal;
+$font-heavy         :          bold;
+
+$font-family-1      :          "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+//== Buttons
+
+$btn-default-color:              $brand-color-1;
+$btn-default-bg:                 $brand-color-2;
+$btn-default-border:             transparent; 
+
+
+//== Forms
+
+$input-bg:                       transparent;
+$input-color:                    $brand-color-1;
+$input-border:                   $brand-color-2;
+$input-border-focus:             transparent;
+$input-color-placeholder:        $brand-color-1;
+
+
+//== Components
+
+$border-radius-base: 0;
+
+//== Search Results Component
+
+$sr-header-color              :      $brand-color-1;
+$sr-header-bg                 :      $brand-color-2;
+$sr-header-font-size          :      $font-size-base;
+$sr-header-font-weight        :      $font-light;
+$sr-header-font-family        :      $font-family-1;
+
+$sr-header-content-spacing    :      30px;
+
+$sr-content-color             :      $brand-color-1;
+$sr-content-bg                :      $brand-color-2;
+$sr-content-spacing           :      10px;
+$sr-content-font-size         :      $font-size-base;
+$sr-content-font-size-2       :      14px;
+$sr-content-font-weight       :      $font-light;
+$sr-content-font-weight-2     :      $font-heavy;
+$sr-content-font-family       :      $font-family-1;
