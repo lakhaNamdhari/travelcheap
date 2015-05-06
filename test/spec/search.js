@@ -18,6 +18,11 @@ require([
 		// This view
 		var view;
 
+		var selectSuggestion = function( field, keycode ){
+			field.trigger('keyup', {keyCode: keycode || 64});
+			field.siblings('.suggestions').find('.item').trigger('click');
+		};
+
 		before(function(){
 			viewHolder = $('#view');
 			model = {};
@@ -27,25 +32,66 @@ require([
 			});
 		});
 
-		describe('Model', function(){
-			it('should be an empty object', function(){
-				model.should.be.empty;
+		describe('suggestions should come-up', function(){
+			var checkSuggestions = function( field ){
+				var suggestions = field.siblings('.suggestions');
+
+				suggestions.should.be.hidden;
+				// Mimicking key press
+				field.trigger('keyup', {keyCode: 64});
+				suggestions.should.be.visible.and.should.not.be.empty;
+			};
+
+			it('when user types Source', function(){
+				checkSuggestions( $('#source') );
+			});
+
+			it('when user types Destination', function(){
+				checkSuggestions( $('#destination') );
+			})
+		});
+
+		describe('No search on empty fields', function()
+			it('when source is empty, destination is filled', function(){
+				var urlAfter, urlBefore;
+				
+				selectSuggestion( $('#destination') );
+				urlBefore = location.pathname
+				$('#view btn').trigger('click');
+				urlAfter = location.pathname;
+				urlBefore.should.be.equal.to.urlAfter;
+			});
+
+			it('when source is filled, destination is empty', function(){
+				var urlAfter, urlBefore;
+				
+				selectSuggestion( $('#source') );
+				urlBefore = location.pathname
+				$('#view btn').trigger('click');
+				urlAfter = location.pathname;
+				urlBefore.should.be.equal.to.urlAfter;
+			});
+
+			it('when source is empty, destination is empty', function(){
+				var urlAfter, urlBefore;
+
+				urlBefore = location.pathname
+				$('#view btn').trigger('click');
+				urlAfter = location.pathname;
+				urlBefore.should.be.equal.to.urlAfter;
 			});
 		});
 
-		describe('View', function(){
-			it('should be a Form', function(){
-				$('#view form').should.exist;
-			});
+		it('Should search', function(){
+			selectSuggestion( $('#source') );
+			selectSuggestion( $('#destination'), 65 );
 
-			it('should have class tc-find-cabs', function(){
-				$('#view form').should.have.class('tc-find-cabs');
-			});
+			urlBefore = location.pathname
+			$('#view btn').trigger('click');
+			urlAfter = location.pathname;
+			urlBefore.should.not.be.equal.to.urlAfter;
 
-			it('template should have rendered', function(){
-				$('#source').should.exist;
-			});
-		});
+		})
 
 		after(function(){
 			view.destroy();
