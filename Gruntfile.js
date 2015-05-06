@@ -166,11 +166,10 @@ module.exports = function (grunt) {
         mocha: {
             all: {
                 options: {
-                    run: false,
-                    urls: ['http://localhost:<%= connect.test.options.port %>/index.html?test=' + grunt.option('source')],
-                    reporter: 'XUnit'
-                },
-                dest: '<%= yeoman.test %>/results/' + grunt.option('source') + '.html'
+                    run: false
+                    ,urls: ['http://localhost:<%= connect.test.options.port %>/index.html?test=' + grunt.option('source')]
+                    ,reporter: 'Spec'
+                }
             }
         },
         sass: {
